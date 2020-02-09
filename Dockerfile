@@ -52,8 +52,6 @@ RUN apk --no-cache add php7 \
 RUN pecl install apcu \
     && pecl install yaml
 
-COPY .docker/resolv.conf /etc/resolv.conf
-
 # Nginx config
 COPY .docker/nginx/nginx.conf /etc/nginx/nginx.conf
 
@@ -69,10 +67,6 @@ RUN chown -R nobody.nobody /run && \
   chown -R nobody.nobody /var/tmp/nginx && \
   chown -R nobody.nobody /var/log/nginx
 
-# Document root for Nginx
-RUN mkdir -p /var/www
-RUN chown -R nobody:nobody /srv/app
-
 # Switch to use a non-root user from here on
 USER nobody
 
@@ -80,6 +74,7 @@ WORKDIR /tmp
 
 USER root
 RUN mkdir -p /srv/app/
+RUN chown -R nobody:nobody /srv/app
 
 USER nobody
 WORKDIR /srv/app/
