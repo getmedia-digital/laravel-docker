@@ -33,7 +33,9 @@ RUN apk --no-cache add php7 \
     php7-mbstring \
     php7-pdo \
     php7-pdo_pgsql \
+    php7-pdo_mysql \
     php7-pgsql \
+    php7-mysqli \
     php7-odbc \
     php7-gd \
     php7-tokenizer \
