@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:3.14
 LABEL Maintainer="Pavel Janku <pavel@getmedia.digital>" \
       Description="Lightweight Alpine linux based container with Nginx for Laravel apps."
 
